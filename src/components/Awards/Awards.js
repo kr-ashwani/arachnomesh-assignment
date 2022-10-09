@@ -24,17 +24,9 @@ const Awards = () => {
   const productImagesRef = useRef();
   const circleImageRef = useRef();
   const contentRef = useRef(content);
-  const clearTimers = useRef([]);
+  const countRotationRef = useRef([]);
 
   function trigerAnimation() {
-    clearTimers.current.forEach((elem) => {
-      clearTimeout(elem);
-    });
-    Array.from(productImagesRef.current.children).forEach((prod) => {
-      prod.style.transition = `transform 600ms ease-in-out`;
-    });
-    clearTimers.current = [];
-
     mainContentRef.current.children[0].classList.add('hide');
     mainContentRef.current.children[1].classList.add('hide');
     circleImageRef.current.style.transform = `translate(-50%) rotate(${
@@ -42,50 +34,26 @@ const Awards = () => {
     }deg)`;
     Array.from(productImagesRef.current.children).forEach((prod) => {
       prod.style.transform = `translate(-50%, -50%) rotate(calc(var(--tiltAngle) + ${
-        (2 * contentRef.current + 1) * 60
+        (2 * contentRef.current + 1) * 60 + countRotationRef.current * 360
       }deg))
        translateY(calc(-1 * (var(--circleSize) / 2.2) + 8vw))`;
     });
-    clearTimers.current.push(
-      setTimeout(() => {
-        setContent((prev) => {
-          mainContentRef.current.children[0].classList.remove('hide');
-          mainContentRef.current.children[1].classList.remove('hide');
-          Array.from(productImagesRef.current.children).forEach((prod) => {
-            prod.style.transform = `translate(-50%, -50%) rotate(calc(var(--tiltAngle) + ${
-              (contentRef.current + 1) * 120
-            }deg))
-           translateY(calc(-1 * (var(--circleSize) / 2.2)))`;
-          });
-
-          if (contentRef.current === 2) resetAnimation();
-          if (prev === titleDescription.length - 1) return 0;
-          return prev + 1;
-        });
-      }, 600)
-    );
-  }
-
-  function resetAnimation() {
-    clearTimers.current.push(
-      setTimeout(() => {
+    setTimeout(() => {
+      setContent((prev) => {
+        mainContentRef.current.children[0].classList.remove('hide');
+        mainContentRef.current.children[1].classList.remove('hide');
         Array.from(productImagesRef.current.children).forEach((prod) => {
-          prod.style.transition = `none`;
+          prod.style.transform = `translate(-50%, -50%) rotate(calc(var(--tiltAngle) + ${
+            (contentRef.current + 1) * 120 + countRotationRef.current * 360
+          }deg))
+           translateY(calc(-1 * (var(--circleSize) / 2.2)))`;
         });
-        clearTimers.current.push(
-          setTimeout(() => {
-            Array.from(productImagesRef.current.children).forEach((prod) => {
-              prod.style.transform = null;
-              clearTimers.current.push(
-                setTimeout(() => {
-                  prod.style.transition = `transform 600ms ease-in-out`;
-                }, 10)
-              );
-            });
-          }, 10)
-        );
-      }, 600)
-    );
+
+        if (contentRef.current === 2) countRotationRef.current += 1;
+        if (prev === titleDescription.length - 1) return 0;
+        return prev + 1;
+      });
+    }, 600);
   }
 
   useEffect(() => {
