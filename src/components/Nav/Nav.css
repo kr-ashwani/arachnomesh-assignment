@@ -1,0 +1,29 @@
+header {
+  background-color: rgba(33, 14, 10, 0.8);
+  padding: 10px 40px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  overflow-x: hidden;
+  z-index: 1000;
+}
+
+.logo {
+  max-width: 200px;
+}
+
+nav > ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-top: -3.5px;
+  gap: 1rem;
+  font-weight: 500;
+}
+nav > ul > li > a {
+  text-decoration: none;
+  color: var(--white);
+}

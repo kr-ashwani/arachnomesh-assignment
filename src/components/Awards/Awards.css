@@ -1,0 +1,83 @@
+#awards {
+  color: var(--white);
+  background-color: #210e0a;
+  padding: 70px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.awardsTitle {
+  margin-bottom: 20px;
+  padding-left: 50px;
+}
+.awardsTitle > h2 {
+  font-family: 'PT Serif', serif;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 40px;
+}
+
+.awardsContentMain {
+  padding-left: 120px;
+  margin-top: 24vh;
+}
+
+.awardsContentMain > p {
+  font-size: clamp(0.7rem, 3.4vh, 1rem);
+  font-weight: 200;
+  width: 40ch;
+  transition: opacity 700ms ease-in-out;
+}
+.awardsContentMain > p.hide {
+  opacity: 0.1;
+}
+.awardsContentMain > h3 {
+  font-size: clamp(1.2rem, 5vh, 2.6rem);
+  font-family: 'PT Serif', serif;
+  font-weight: 400;
+  margin-bottom: 10px;
+  /* transform: translateX(-500px); */
+  transition: transform 600ms ease-in-out;
+}
+.awardsContentMain > h3.hide {
+  transform: translateX(-700px);
+}
+.awardsClippedCircle {
+  --circleSize: 130vh;
+  height: var(--circleSize);
+  width: var(--circleSize);
+  background-color: #fff5ec;
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.productImages {
+  position: relative;
+  bottom: -100%;
+  transform: rotate(-8deg);
+}
+
+.productImages > img {
+  height: calc(var(--circleSize) * 0.11);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(var(--tiltAngle))
+    translateY(calc(-1 * (var(--circleSize) / 2.2)));
+  transition: transform 600ms ease-in-out;
+}
+
+.awardCircle > img {
+  bottom: -20px;
+  height: calc(var(--circleSize) * 0.485);
+  left: 48%;
+  position: absolute;
+  -webkit-transform: translate(-50%) rotate(0);
+  transform: translate(-50%) rotate(0);
+  -webkit-transform-origin: bottom;
+  transform-origin: bottom;
+  transition: transform 1200ms ease-in-out;
+}
