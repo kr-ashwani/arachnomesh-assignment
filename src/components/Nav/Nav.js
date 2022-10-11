@@ -23,13 +23,13 @@ const Nav = () => {
             <a href="#about">About</a>
           </li>
           <li>
-            <a href="benefits">Benefits</a>
+            <a href="#benefits">Benefits</a>
           </li>
           <li>
-            <a href="categories">Categories</a>
+            <a href="#categories">Categories</a>
           </li>
           <li>
-            <a href="voting">Voting</a>
+            <a href="#voting">Voting</a>
           </li>
           <li>
             <a href="#Contact">contact</a>
