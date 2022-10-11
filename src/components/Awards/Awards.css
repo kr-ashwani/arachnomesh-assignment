@@ -81,3 +81,24 @@
   transform-origin: bottom;
   transition: transform 1200ms ease-in-out;
 }
+
+.productImagesTag {
+  position: absolute;
+  bottom: 32vh;
+  left: 51vh;
+  transform-style: preserve-3d;
+  perspective: 150vh;
+}
+.productImagesTag > img {
+  position: absolute;
+  height: calc(var(--circleSize) * 0.22);
+  -webkit-transform-origin: bottom;
+  transform-origin: bottom;
+  transform: rotateX(90deg);
+  opacity: 0;
+  transition: transform 900ms ease-in-out, opacity 600ms ease-in-out;
+}
+.productImagesTag > img.show {
+  transform: rotateX(0deg);
+  opacity: 1;
+}

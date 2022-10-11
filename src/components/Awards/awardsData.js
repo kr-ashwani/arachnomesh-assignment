@@ -16,6 +16,25 @@ import brandYear3 from '../../assets/brandYear/3.png';
 import brandYear4 from '../../assets/brandYear/4.png';
 import brandYear5 from '../../assets/brandYear/5.png';
 
+import productTag1 from '../../assets/productTag/1.png';
+import productTag2 from '../../assets/productTag/2.png';
+import productTag3 from '../../assets/productTag/3.png';
+
+const titleDescription = [
+  {
+    title: 'Brand of the year',
+    desc: 'The Brand of the Year is a distinctive and premier recognition for a brand recognized as a champion in its industry category based on current year market standing and consumer preference.',
+  },
+  {
+    title: 'Product of the year',
+    desc: 'The Product of the Year Award celebrates the best products in the market in different categories of FMCG products and rewards manufacturers for quality, strategy, marketing and other parameters.',
+  },
+  {
+    title: 'Product launch of the year',
+    desc: 'The Product Launch of the Year Award celebrates the efforts of FMCG companies who continuously develop new products, brand extensions and packaging updates to meet the new industry standards and demands of the consumers.',
+  },
+];
+
 const productImg = [
   { imageUrl: productYear1 },
   { imageUrl: productYear2 },
@@ -36,4 +55,10 @@ const productImg = [
   { imageUrl: brandYear5 },
 ];
 
-export { productImg };
+const productTagImg = [
+  { imageUrl: productTag1 },
+  { imageUrl: productTag2 },
+  { imageUrl: productTag3 },
+];
+
+export { productImg, productTagImg, titleDescription };

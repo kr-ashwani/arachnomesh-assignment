@@ -1,0 +1,116 @@
+#benefits {
+  color: #000;
+  padding: 70px 0;
+  position: relative;
+  overflow: hidden;
+}
+.benefitsTitle {
+  margin-bottom: 20px;
+  padding-left: 50px;
+}
+
+.benefitsTitle > h2 {
+  font-family: 'PT Serif', serif;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 40px;
+}
+.benefitsMain {
+  padding: 5vh 10vw 0;
+}
+
+.benefitsCardConatiner {
+  display: flex;
+  justify-content: space-around;
+}
+.benefitsCard > h4 {
+  margin-top: 25px;
+  font-family: 'PT Serif', serif;
+  font-size: clamp(0.8rem, 2.8vh, 1.4rem);
+  font-weight: 500;
+  width: -webkit-max-content;
+  width: max-content;
+}
+.benefitsFallCard {
+  padding-top: 10px;
+}
+.fallCardRow1,
+.fallCardRow2 {
+  margin-bottom: 30px;
+  gap: 5px;
+  display: flex;
+}
+.fallCardRow1 {
+  justify-content: space-around;
+  padding: 0 100px;
+}
+.fallTag {
+  transform: translateY(var(--translateTop));
+  opacity: 0.5;
+}
+.fallTag.animate {
+  animation: tagFall 1.4s ease-in forwards var(--fallDelay);
+}
+
+.cardTag,
+.fallCardRow1 > *,
+.fallCardRow2 > * {
+  z-index: 5;
+  border-radius: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2vh;
+  font-weight: 500;
+  height: 6.6vh;
+  min-width: fit-content;
+  min-width: -moz-fit-content;
+  padding: 0 1vh;
+  text-transform: uppercase;
+  width: var(--tagWidth);
+  background-color: var(--tagColor);
+}
+
+.benefitsCard {
+  display: flex;
+  transform-style: preserve-3d;
+  flex-direction: column;
+  align-items: center;
+  perspective: 90vh;
+}
+.benefitsCard > img {
+  height: 42vh;
+  margin-top: -5vh;
+  transform-origin: top;
+  animation: swing 2s ease-in-out alternate infinite var(--swingDelay);
+  transform: translateZ(-5px) rotateZ(var(--Zswing)) rotateY(var(--Yswing));
+}
+@keyframes swing {
+  0% {
+    transform: translateZ(-5px) rotateZ(var(--Zswing))
+      rotateY(calc(1 * var(--Yswing)));
+  }
+  100% {
+    transform: translateZ(-5px) rotateZ(calc(-1 * var(--Zswing)))
+      rotateY(calc(-1 * var(--Yswing)));
+  }
+}
+
+@keyframes tagFall {
+  0% {
+    transform: translateY(var(--translateTop));
+    opacity: 0.5;
+  }
+  85% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  95% {
+    transform: translateY(0) rotate(var(--fallAngle) * 1.28);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(var(--fallAngle));
+    opacity: 1;
+  }
+}
