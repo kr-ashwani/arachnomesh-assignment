@@ -6,12 +6,26 @@ import circleImage from '../../assets/Ellipse.db41705c5a6b27e13803.png';
 const Awards = () => {
   const [content, setContent] = useState(0);
   const mainContentRef = useRef();
+  const awardsRef = useRef();
   const productImagesRef = useRef();
   const circleImageRef = useRef();
   const productTagRef = useRef();
   const contentRef = useRef(content);
   const countRotationRef = useRef(0);
   const blockAnimationRef = useRef(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      () => {
+        trigerAnimation();
+      },
+      { threshold: 0.12 }
+    );
+    observer.observe(awardsRef.current);
+
+    const awards = awardsRef.current;
+    return () => observer.unobserve(awards);
+  }, []);
 
   function trigerAnimation() {
     if (blockAnimationRef.current) return;
@@ -62,7 +76,7 @@ const Awards = () => {
   }, []);
 
   return (
-    <section id="awards">
+    <section ref={awardsRef} id="awards">
       <div className="awardsContent">
         <div className="awardsTitle" onClick={trigerAnimation}>
           <h2>AWARDS CATEGORIES</h2>
