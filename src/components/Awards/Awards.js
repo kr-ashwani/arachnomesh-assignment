@@ -16,10 +16,10 @@ const Awards = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      () => {
-        trigerAnimation();
+      (event) => {
+        if (event[0].isIntersecting) trigerAnimation();
       },
-      { threshold: 0.12 }
+      { threshold: 0.9 }
     );
     observer.observe(awardsRef.current);
 
