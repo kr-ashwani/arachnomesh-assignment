@@ -106,7 +106,7 @@
     opacity: 1;
   }
   95% {
-    transform: translateY(0) rotate(var(--fallAngle) * 1.28);
+    transform: translateY(0) rotate(var(--fallAngle) * 1.1);
     opacity: 1;
   }
   100% {
